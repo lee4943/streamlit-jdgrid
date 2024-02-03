@@ -154,3 +154,4 @@ Version 0.1.0:
 [github_link]: https://github.com/PablocFonseca/streamlit-aggrid
 [pypi_badge]: https://badgen.net/pypi/v/streamlit-aggrid?icon=pypi&color=black&label?
 [pypi_link]: https://www.pypi.org/project/streamlit-aggrid/
+
