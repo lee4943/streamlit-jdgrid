@@ -1,26 +1,41 @@
-[tool.poetry]
-name = "streamlit-aggrid"
-version = "0.3.4-3"
+[build-system]
+requires = ["setuptools", "setuptools-scm"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "streamlit-jdgrid"
+authors = [
+    {name = "Jake Diamond", email = "jake@mac.local"},
+]
 description = "Streamlit component implementation of ag-grid"
-classifiers = ["Programming Language :: Python :: 3", "License :: OSI Approved :: MIT License", "Operating System :: OS Independent"]
-homepage = "https://github.com/PablocFonseca/streamlit-aggrid"
-authors = ["Pablo Fonseca <pablo.fonseca+pip@gmail.com>"]
 readme = "README.md"
-exclude = ["**/node_modules/**/*", "**/frontend/src/**/*", "**/.yarn/**/*"]
-include = ["**/frontend/build/**/*"]
-packages = [{include="st_aggrid"}]
+requires-python = ">=3.8"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent"
+]
+dependencies = [
+    "numpy",
+    "pandas>=1.2",
+    "python-decouple>=3.6",
+    "simplejson>=3.0",
+    "streamlit>=0.87.0"
+]
+dynamic = ["version"]
 
-[tool.poetry.dependencies]
-python = ">=3.8"
-streamlit = ">=0.87.0"
-pandas = ">=1.2"
-python-decouple = "^3.6"
+[project.optional-dependencies]
+dev = ["black", "build", "ruff", "watchdog>=2.1.9,<3.0.0"]
 
-[tool.poetry.dev-dependencies]
-black = "*"
-watchdog = "^2.1.9"
+[tool.distutils.bdist_wheel]
+universal = true
 
-[build-system]  
-requires = ["poetry-core>=1.0.0"]
-build-backend = "poetry.core.masonry.api" 
+[tool.setuptools_scm]
+version_file = "st_aggrid/_version.py"
 
+[tool.setuptools]
+packages = ["st_aggrid"]
+include-package-data = false
+
+[tool.setuptools.package-data]
+st_aggrid = ["frontend/build/**/*"]

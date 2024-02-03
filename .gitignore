@@ -167,7 +167,7 @@ coverage/
 
 # Lockfiles
 #yarn.lock
-package-lock.json
+#package-lock.json
 
 ########################################################################
 # JetBrains
@@ -205,3 +205,7 @@ Pipfile
 st_aggrid/frontend/.yarn/install-state.gz
 quick_examples*
 test/*
+
+README-dev.md
+_version.py
+!test/develop.py

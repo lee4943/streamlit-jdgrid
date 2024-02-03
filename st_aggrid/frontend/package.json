@@ -1,6 +1,5 @@
 {
   "name": "frontend",
-  "version": "0.3.0",
   "private": true,
   "dependencies": {
     "@ag-grid-community/client-side-row-model": "^29.1.0",
@@ -43,6 +42,11 @@
     "sass": "^1.58.3",
     "streamlit-component-lib": "^1.4.0",
     "typescript": "^4.9.5"
+  },
+  "overrides": {
+    "streamlit-component-lib": {
+        "apache-arrow": "9.0.0"
+      }
   },
   "scripts": {
     "analyze": "source-map-explorer 'build/static/js/*.js'",
