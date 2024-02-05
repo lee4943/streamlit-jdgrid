@@ -1,0 +1,20 @@
+name: build-and-release
+run-name: Build/release/publish streamlit-jdgrid
+on:
+    push:
+        branches:
+            - 'test-**'
+    release:
+        types: [published]
+        
+jobs:
+    build:
+        runs-on: ubuntu-latest
+        container:
+            image: python:3.8-slim-bookworm
+        steps:
+            - name: Install node
+              run: apt update && apt install nodejs
+            - name: Check npm/node
+              run: which npm && node --version
+
