@@ -33,4 +33,25 @@ jobs:
               run: pip install build==${{ env.PYTHON_BUILD_VERSION }} && npm install --workspaces false
             - name: Perform build
               run: npm run build
+            - name: Upload sdist/whl
+              uses: actions/upload-artifact@v4
+              with:
+                name: streamlit-jdgrid-build
+                path: dist/*
+                retention-days: 1
+    release:
+        needs: build
+        runs-on: ubuntu-latest
+        steps:
+            - name: Download streamlit-jdgrid-build
+              uses: actions/download-artifact@v4
+              with:
+                name: streamlit-jdgrid-build
+            - name: Set up Python ${{ env.PYTHON_VERSION }}
+              uses: actions/setup-python@v5
+              with:
+                python-version: ${{ env.PYTHON_VERSION }}
+            - name: Install twine
+              run: pip install twine==${{ env.PYTHON_TWINE_VERSION }} && ls -la
+
 
