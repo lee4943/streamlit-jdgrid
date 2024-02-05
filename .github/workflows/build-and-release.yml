@@ -14,7 +14,7 @@ jobs:
             image: python:3.8-slim-bookworm
         steps:
             - name: Install node
-              run: apt update && apt install nodejs
+              run: apt update && apt install nodejs -y
             - name: Check npm/node
               run: which npm && node --version
 
