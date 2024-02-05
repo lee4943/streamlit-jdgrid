@@ -32,5 +32,5 @@ jobs:
               working-directory: ./st_aggrid
               run: pip install build==${{ env.PYTHON_BUILD_VERSION }} && npm install --workspaces false
             - name: Perform build
-              run: sudo npm run build
+              run: npm run build
 

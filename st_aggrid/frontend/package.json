@@ -45,7 +45,7 @@
   },
   "overrides": {
     "streamlit-component-lib": {
-        "apache-arrow": "11.0.0"
+        "apache-arrow": "9.0.0"
       }
   },
   "scripts": {
