@@ -37,7 +37,7 @@ jobs:
               uses: actions/upload-artifact@v4
               with:
                 name: streamlit-jdgrid-build
-                path: dist/
+                path: dist/*
                 retention-days: 1
     release:
         needs: build
@@ -47,11 +47,12 @@ jobs:
               uses: actions/download-artifact@v4
               with:
                 name: streamlit-jdgrid-build
+                path: dist
             - name: Set up Python ${{ env.PYTHON_VERSION }}
               uses: actions/setup-python@v5
               with:
                 python-version: ${{ env.PYTHON_VERSION }}
             - name: Install twine
-              run: pip install twine==${{ env.PYTHON_TWINE_VERSION }} && ls -la dist/
+              run: pip install twine==${{ env.PYTHON_TWINE_VERSION }} && ls -la
 
 
