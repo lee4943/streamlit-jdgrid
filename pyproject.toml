@@ -48,5 +48,5 @@ line-length = 88
 line-length = 88
 
 [tool.ruff.lint]
-select = ["C901","E","ERA","F","FIX002","N","PD","S"]
+select = ["C901","E","ERA","F","FIX002","I001","N","PD","S"]
 ignore = []
