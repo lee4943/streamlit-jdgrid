@@ -28,6 +28,6 @@ jobs:
               uses: actions/setup-node@v4
               with:
                   node-version: ${{ env.NODE_VERSION }}
-            - name: Install Python build deps
-              run: pip install build==${{ env.PYTHON_BUILD_VERSION }} twine==${{ env.PYTHON_TWINE_VERSION }}
+            - name: Perform build
+              run: pip install build==${{ env.PYTHON_BUILD_VERSION }} && npm run build --workspace=frontend
 
