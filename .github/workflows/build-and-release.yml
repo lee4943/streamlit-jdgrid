@@ -2,8 +2,8 @@ name: build-and-release
 run-name: Build/release/publish streamlit-jdgrid
 on:
     push:
-        branches:
-            - 'test-**'
+        tags:
+            - '*'
     release:
         types: [published]
 
