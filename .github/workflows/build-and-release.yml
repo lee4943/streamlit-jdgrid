@@ -29,7 +29,7 @@ jobs:
               with:
                   node-version: ${{ env.NODE_VERSION }}
             - name: Install build deps
-              run: pip install build==${{ env.PYTHON_BUILD_VERSION }} && cd st_aggrid && npm install --workspaces false && cd - && pip install -r requirements.txt
+              run: pip install build==${{ env.PYTHON_BUILD_VERSION }} && cd st_aggrid && npm install --workspaces false && cd - #&& pip install -r requirements.txt
             - name: Perform build
               run: npm run build --workspace=frontend && python -m build
 
