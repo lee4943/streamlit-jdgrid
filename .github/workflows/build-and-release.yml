@@ -1,9 +1,6 @@
 name: build-and-release
 run-name: Build/release/publish streamlit-jdgrid
 on:
-    push:
-        tags:
-            - '*'
     release:
         types: [published]
 
@@ -55,7 +52,7 @@ jobs:
             - name: Install twine
               run: pip install twine==${{ env.PYTHON_TWINE_VERSION }}
             - name: Publish package
-              run: twine upload --repository testpypi dist/*
+              run: twine upload dist/*
               env:
                 TWINE_USERNAME: ${{ secrets.TWINE_USERNAME }}
                 TWINE_PASSWORD: ${{ secrets.TWINE_PASSWORD }}
