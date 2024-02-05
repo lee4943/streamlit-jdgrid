@@ -5,7 +5,8 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "streamlit-jdgrid"
 authors = [
-    {name = "Jake Diamond", email = "jake@mac.local"},
+    {name = "Pablo Fonseca", email = "pablo.fonseca+pip@gmail.com"},
+    {name = "Jake Diamond", email = "dubbul@protonmail.com"},
 ]
 description = "Streamlit component implementation of ag-grid"
 readme = "README.md"
@@ -39,3 +40,13 @@ include-package-data = false
 
 [tool.setuptools.package-data]
 st_aggrid = ["frontend/build/**/*"]
+
+[tool.black]
+line-length = 88
+
+[tool.ruff]
+line-length = 88
+
+[tool.ruff.lint]
+select = ["C901","E","ERA","F","FIX002","I001","N","PD","S"]
+ignore = []

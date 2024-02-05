@@ -2,7 +2,8 @@
   "name": "streamlit-jdgrid",
   "repository": "https://github.com/lee4943/streamlit-jdgrid.git",
   "license": "MIT",
-  "author": "Jake Diamond",
+  "author": "Pablo Fonseca",
+  "contributors": ["Jake Diamond <dubbul@protonmail.com>"],
   "private": true,
   "workspaces": [
     "st_aggrid/frontend"
