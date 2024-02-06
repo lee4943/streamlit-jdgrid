@@ -30,6 +30,7 @@ class AgGridReturn(Mapping):
     selected_rows: List[Mapping] = field(default_factory=list)
     column_state = None
     excel_blob = None
+    filter_state = None
 
     # Backwards compatibility with dict interface
     def __getitem__(self, __k):
@@ -180,6 +181,7 @@ def AgGrid(
     conversion_errors: str = "coerce",
     reload_data: bool = False,
     columns_state=None,
+    filter_state=None,
     theme: str = AgGridTheme.STREAMLIT,
     custom_css=None,
     use_legacy_selected_rows=False,
@@ -422,6 +424,7 @@ def AgGrid(
             default=None,
             reload_data=reload_data,
             columns_state=columns_state,
+            filter_state=filter_state,
             theme=theme,
             custom_css=custom_css,
             update_on=update_on,
@@ -491,5 +494,6 @@ def AgGrid(
 
         response.column_state = component_value["colState"]
         response.excel_blob = component_value["ExcelBlob"]
+        response.filter_state = component_value["filterState"]
 
     return response
