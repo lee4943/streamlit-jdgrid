@@ -294,6 +294,14 @@ class AgGrid<S = {}> extends React.Component<ComponentProps, S> {
     }
   }
 
+  private loadFilterState() {
+    const filterState = this.props.args.filter_state
+
+    if (filterState != null) {
+      this.api.setFilterModel(filterState)
+    }
+  }
+
   private DownloadAsExcelIfRequested() {
     if (this.api) {
 
@@ -411,8 +419,9 @@ class AgGrid<S = {}> extends React.Component<ComponentProps, S> {
       })),
       colState: this.columnApi.getColumnState(),
       ExcelBlob: this.handleExcelExport(),
+      filterState: this.api.getFilterModel(),
     }
-    //console.dir(returnValue)
+
     return returnValue
   }
 
@@ -487,6 +496,9 @@ class AgGrid<S = {}> extends React.Component<ComponentProps, S> {
     })
 
     this.api.setRowData(JSON.parse(this.props.args.row_data))
+
+    this.loadColumnsState()
+    this.loadFilterState()
 
     this.processPreselection()
   }
