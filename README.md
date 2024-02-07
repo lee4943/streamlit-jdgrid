@@ -1,15 +1,20 @@
-# streamlit-aggrid
+# streamlit-jdgrid
 
-[![Open in Streamlit][share_badge]][share_link] [![GitHub][github_badge]][github_link] [![PyPI][pypi_badge]][pypi_link]
+[![GitHub][github_badge]][github_link] [![PyPI][pypi_badge]][pypi_link]
+
+---
+### <span style="color:dodgerblue">*Just Derive edition*</span>
+
+- Derived almost entirely from [@PablocFonseca](https://github.com/PablocFonseca)'s fantastic work on [streamlit-aggrid](https://github.com/PablocFonseca/streamlit-aggrid)
+- Will begin publishing separate docs soon as well!
 
 ---
 
 **AgGrid** is an awesome grid for web frontend. More information in [https://www.ag-grid.com/](https://www.ag-grid.com/). Consider purchasing a license from Ag-Grid if you are going to use enterprise features!
-
-Comment on [discuss.streamlit.io](https://discuss.streamlit.io/t/ag-grid-component-with-input-support/) If you like it or [Buy me a beer 🍺!](https://www.paypal.com/donate?hosted_button_id=8HGLA4JZBYFPQ)
-
 <br/>
-Live example [on Streamlit Cloud](https://pablocfonseca-streamlit-aggrid-examples-example-jyosi3.streamlitapp.com/). Some basic documentation is available: https://streamlit-aggrid.readthedocs.io
+
+Some basic documentation is available: https://streamlit-aggrid.readthedocs.io
+<br/>
 
 # Install
 
@@ -40,7 +45,7 @@ streamlit run example.py
 
 Grid data is sent back to streamlit and can be reused in other components. In the example below a chart is updated on grid edition.
 
-![example image](https://github.com/PablocFonseca/streamlit-aggrid/raw/main/group_selection_example.gif)
+![example image](https://github.com/lee4943/streamlit-jdgrid/raw/main/group_selection_example.gif)
 
 # Development Notes
 
@@ -135,10 +140,8 @@ Version 0.1.0:
 - Added some docstrings specially on gridOptionsBuilder methods
 - Lacks performance for production. JS Client code is slow...
 
-[share_badge]: https://static.streamlit.io/badges/streamlit_badge_black_white.svg
-[share_link]: https://share.streamlit.io/pablocfonseca/streamlit-aggrid/main/examples/example.py
 [github_badge]: https://badgen.net/badge/icon/GitHub?icon=github&color=black&label
-[github_link]: https://github.com/PablocFonseca/streamlit-aggrid
-[pypi_badge]: https://badgen.net/pypi/v/streamlit-aggrid?icon=pypi&color=black&label?
-[pypi_link]: https://www.pypi.org/project/streamlit-aggrid/
+[github_link]: https://github.com/lee4943/streamlit-jdgrid
+[pypi_badge]: https://badgen.net/pypi/v/streamlit-jdgrid?icon=pypi&color=black&label?
+[pypi_link]: https://www.pypi.org/project/streamlit-jdgrid/
 
