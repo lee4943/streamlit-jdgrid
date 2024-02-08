@@ -18,6 +18,8 @@ copyright = "2024, Pablo Fonseca, Jake Diamond"
 author = "Pablo Fonseca, Jake Diamond"
 
 version = __version__
+html_show_sourcelink = False
+html_copy_source = False
 
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
