@@ -74,6 +74,7 @@ jobs:
         steps:
             - name: Deploy docs to GitHub Pages
               uses: actions/deploy-pages@v4
-              artifact_name: streamlit-jdgrid-docs
+              with:
+                artifact_name: streamlit-jdgrid-docs
 
 
