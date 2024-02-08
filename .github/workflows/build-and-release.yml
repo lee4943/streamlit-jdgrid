@@ -40,7 +40,7 @@ jobs:
             - name: Build docs
               run: npm run build-docs
             - name: Clean docs
-              run: rm docs/_build/html/.buildinfo docs/_build/html/objects.inv
+              run: rm docs/_build/html/.buildinfo docs/_build/html/objects.inv && touch docs/_build/html/.nojekyll
             - name: Upload docs
               uses: actions/upload-artifact@v4
               with:
@@ -71,6 +71,7 @@ jobs:
         needs: release
         runs-on: ubuntu-latest
         permissions:
+          contents: read
           pages: write
           id-token: write
         steps:
