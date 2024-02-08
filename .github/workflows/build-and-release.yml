@@ -44,8 +44,8 @@ jobs:
             - name: Upload docs
               uses: actions/upload-artifact@v4
               with:
-                name: streamlit-jdgrid-docs
-                path: docs/_build/html/*
+                name: github-pages
+                path: docs/_build/html/
                 retention-days: 1
     release:
         needs: build
@@ -77,7 +77,5 @@ jobs:
         steps:
             - name: Deploy docs to GitHub Pages
               uses: actions/deploy-pages@v4
-              with:
-                artifact_name: streamlit-jdgrid-docs
 
 
