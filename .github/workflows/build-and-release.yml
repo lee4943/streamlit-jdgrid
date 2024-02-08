@@ -7,7 +7,7 @@ on:
 env:
     NODE_VERSION: 20.x
     PYTHON_TWINE_VERSION: 4.0.2
-    PYTHON_VERSION: 3.8
+    PYTHON_VERSION: 3.9
 
 jobs:
     build:
