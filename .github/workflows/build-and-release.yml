@@ -40,7 +40,7 @@ jobs:
             - name: Build docs
               run: npm run build-docs
             - name: Clean docs
-              run: rm docs/_build/html/.buildinfo rm docs/_build/html/objects.inv
+              run: rm docs/_build/html/.buildinfo docs/_build/html/objects.inv
             - name: Upload docs
               uses: actions/upload-artifact@v4
               with:
