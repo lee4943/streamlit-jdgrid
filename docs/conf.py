@@ -5,9 +5,9 @@
 import os
 import sys
 
-from st_aggrid._version import __version__
-
 sys.path.insert(0, os.path.abspath(".."))
+
+from st_aggrid._version import __version__
 
 
 # -- Project information -----------------------------------------------------
