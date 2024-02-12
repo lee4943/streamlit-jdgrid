@@ -15,11 +15,14 @@ class GridOptionsBuilder:
         Creates an instance and initilizes it from a dataframe.
         ColumnDefs are created based on dataframe columns and data types.
 
-        Args:
-            dataframe (pd.DataFrame): a pandas DataFrame.
+        :param dataframe: a pandas DataFrame.
+        :type dataframe: pd.DataFrame
 
-        Returns:
-            GridOptionsBuilder: The instance initialized from the dataframe definition.
+        :param \*\*default_column_parameters: default column parameters
+        :type \*\*default_column_parameters: typing.Dict
+
+        :return: The instance initialized from the dataframe definition.
+        :rtype: st_aggrid.GridOptionsBuilder
         """
 
         # numpy types: 'biufcmMOSUV' https://numpy.org/doc/stable/reference/generated/numpy.dtype.kind.html
@@ -61,34 +64,33 @@ class GridOptionsBuilder:
     ):
         """Configure default column.
 
-        Args:
-            min_column_width (int, optional):
-                Minimum column width. Defaults to 100.
+        :param min_column_width: Minimum column width. Defaults to ``100``.
+        :type min_column_width: int, optional
 
-            resizable (bool, optional):
-                All columns will be resizable. Defaults to True.
+        :param resizable: All columns will be resizable. Defaults to ``True``.
+        :type resizable: bool, optional
 
-            filterable (bool, optional):
-                All columns will be filterable. Defaults to True.
+        :param filterable: All columns will be filterable. Defaults to ``True``.
+        :type filterable: bool, optional
 
-            sortable (bool, optional):
-                All columns will be sortable. Defaults to True.
+        :param sortable: All columns will be sortable. Defaults to ``True``.
+        :type sortable: bool, optional
 
-            sorteable (bool, optional):
-                Backwards compatibility alias for sortable. Overrides sortable if not None.
+        :param sorteable: Backwards compatibility alias for ``sortable``. Overrides sortable if not ``None``.
+        :type sorteable: bool, optional
 
-            groupable (bool, optional):
-                All columns will be groupable based on row values. Defaults to True.
+        :param groupable: All columns will be groupable based on row values. Defaults to ``True``.
+        :type groupable: bool, optional
 
-            editable (bool, optional):
-                All columns will be editable. Defaults to True.
+        :param editable: All columns will be editable. Defaults to ``True``.
+        :type editable: bool, optional
 
-            groupable (bool, optional):
-                All columns will be groupable. Defaults to True.
+        :param groupable: All columns will be groupable. Defaults to ``True``.
+        :type groupable: bool, optional
 
-            **other_default_column_properties:
-                Key value pairs that will be merged to defaultColDef dict.
-                Chech ag-grid documentation.
+        :param \*\*other_default_column_properties: Key value pairs that will be merged to defaultColDef dict.
+            Check ag-grid documentation.
+        :type \*\*other_default_column_properties: typing.Dict, optional
         """
         if sorteable is not None:
             sortable = sorteable
@@ -112,8 +114,8 @@ class GridOptionsBuilder:
         """
         Makes grid autoheight
 
-        Args:
-            autoHeight (bool, optional): enable or disable autoheight. Defaults to True.
+        :param autoHeight: enable or disable autoheight. Defaults to ``True``.
+        :type autoHeight: bool, optional
         """
         if autoHeight:
             self.configure_grid_options(domLayout="autoHeight")
@@ -123,8 +125,8 @@ class GridOptionsBuilder:
     def configure_grid_options(self, **props):
         """Merges props to gridOptions
 
-        Args:
-            props (dict): props dicts will be merged to gridOptions root.
+        :param props: props dicts will be merged to gridOptions root.
+        :type props: typing.Dict
         """
         self.__grid_options.update(props)
 
@@ -132,22 +134,30 @@ class GridOptionsBuilder:
         """Batch configures columns. Key-pair values from props dict will be merged
         to colDefs which field property is in column_names list.
 
-        Args:
-            column_names (list, optional):
-                columns field properties. If any of colDefs matches **props dict is merged.
-                Defaults to [].
+        :param column_names: Columns field properties. If any of colDefs matches ``**props`` dict is merged.
+            Defaults to ``[]``.
+        :type column_names: typing.List, optional
+
+        :param \*\*props: props
+        :type \*\*props: typing.Dict
         """
         for k in self.__grid_options["columnDefs"]:
             if k in column_names:
                 self.__grid_options["columnDefs"][k].update(props)
 
     def configure_column(self, field, header_name=None, **other_column_properties):
-        """Configures an individual column
-        check https://www.ag-grid.com/javascript-grid-column-properties/ for more information.
+        """Configures an individual column.
+        Check https://www.ag-grid.com/javascript-grid-column-properties/ for more information.
 
-        Args:
-            field (String): field name, usually equals the column header.
-            header_name (String, optional): [description]. Defaults to None.
+
+        :param field: field name, usually equals the column header.
+        :type field: str
+
+        :param header_name: Header name. Defaults to ``None``.
+        :type header_name: str, optional
+
+        :param \*\*other_column_properties: column props
+        :type \*\*other_column_properties: typing.Dict
         """
         if not self.__grid_options.get("columnDefs", None):
             self.__grid_options["columnDefs"] = defaultdict(dict)
@@ -168,16 +178,15 @@ class GridOptionsBuilder:
         """configures the side panel of ag-grid.
            Side panels are enterprise features, please check www.ag-grid.com
 
-        Args:
-            filters_panel (bool, optional):
-                Enable filters side panel. Defaults to True.
+        :param filters_panel: Enable filters side panel. Defaults to ``True``.
+        :type filters_panel: (bool, optional
 
-            columns_panel (bool, optional):
-                Enable columns side panel. Defaults to True.
+        :param columns_panel: Enable columns side panel. Defaults to ``True``.
+        :type columns_panel: bool, optional
 
-            defaultToolPanel (str, optional): The default tool panel that should open when grid renders.
-                                              Either "filters" or "columns".
-                                              If value is blank, panel will start closed (default)
+        :param defaultToolPanel: The default tool panel that should open when grid renders.
+            Either ``"filters"`` or ``"columns"``. If value is blank, panel will start closed (default)
+        :type defaultToolPanel: str, optional
         """
         filter_panel = {
             "id": "filters",
@@ -221,44 +230,43 @@ class GridOptionsBuilder:
     ):
         """Configure grid selection features
 
-        Args:
-            selection_mode (str, optional):
-                Either 'single', 'multiple' or 'disabled'. Defaults to 'single'.
+        :param selection_mode: Either ``'single'``, ``'multiple'`` or ``'disabled'``. Defaults to ``'single'``.
+        :type selection_mode: str, optional
 
-            use_checkbox (bool, optional):
-                Set to true to have checkbox next to each row.
+        :param use_checkbox: Set to ``True`` to have checkbox next to each row.
+        :type use_checkbox: bool, optional
 
-            header_checkbox (bool, optional):
-                Set to true to have a checkbox in the header to select all rows.
+        :param header_checkbox: Set to ``True`` to have a checkbox in the header to select all rows.
+        :type header_checkbox: bool, optional
 
-            header_checkbox_filtered_only (bool, optional):
-                If header_checkbox is set to True, once the header checkbox is clicked, returned rows depend on this parameter.
-                If this is set to True, only filtered (shown) rows will be selected and returned.
-                If this is set to False, the whole dataframe (all rows regardless of the applited filter) will be selected and returned.
+        :param header_checkbox_filtered_only: If ``header_checkbox`` is set to ``True``, once the header checkbox is clicked, returned rows depend on this parameter.
+            If this is set to ``True``, only filtered (shown) rows will be selected and returned.
+            If this is set to ``False``, the whole dataframe (all rows regardless of the applied filter) will be selected and returned.
+        :type header_checkbox_filtered_only: bool, optional
 
-            pre_selected_rows (list, optional):
-                Use list of dataframe row iloc index to set corresponding rows as selected state on load. Defaults to None.
+        :param pre_selected_rows: Use list of dataframe row iloc index to set corresponding rows as selected state on load. Defaults to ``None``.
+        :type pre_selected_rows: list, optional
 
-            rowMultiSelectWithClick (bool, optional):
-                If False user must hold shift to multiselect. Defaults to True if selection_mode is 'multiple'.
+        :param rowMultiSelectWithClick: If ``False``, user must hold shift to multiselect. Defaults to ``True`` if selection_mode is ``'multiple'``.
+        :type rowMultiSelectWithClick: bool, optional
 
-            suppressRowDeselection (bool, optional):
-                Set to true to prevent rows from being deselected if you hold down Ctrl and click the row
-                (i.e. once a row is selected, it remains selected until another row is selected in its place).
-                By default the grid allows deselection of rows.
-                Defaults to False.
+        :param suppressRowDeselection: Set to ``True`` to prevent rows from being deselected if you hold down Ctrl and click the row
+            (i.e. once a row is selected, it remains selected until another row is selected in its place).
+            By default the grid allows deselection of rows.
+            Defaults to ``False``.
+        :type suppressRowDeselection: bool, optional
 
-            suppressRowClickSelection (bool, optional):
-                Supress row selection by clicking. Usefull for checkbox selection for instance
-                Defaults to False.
+        :param suppressRowClickSelection: Suppress row selection by clicking. Useful for checkbox selection for instance.
+            Defaults to ``False``.
+        :type suppressRowClickSelection: bool, optional
 
-            groupSelectsChildren (bool, optional):
-                When rows are grouped selecting a group select all children.
-                Defaults to True.
+        :param groupSelectsChildren: When rows are grouped selecting a group select all children.
+            Defaults to ``True``.
+        :type groupSelectsChildren: bool, optional
 
-            groupSelectsFiltered (bool, optional):
-                When a group is selected filtered rows are also selected.
-                Defaults to True.
+        :param groupSelectsFiltered: When a group is selected filtered rows are also selected.
+            Defaults to ``True``.
+        :type groupSelectsFiltered: bool, optional
         """
         if selection_mode == "disabled":
             self.__grid_options.pop("rowSelection", None)
@@ -300,15 +308,14 @@ class GridOptionsBuilder:
     ):
         """Configure grid's pagination features
 
-        Args:
-            enabled (bool, optional):
-                Self explanatory. Defaults to True.
+        :param enabled: Self-explanatory. Defaults to ``True``.
+        :type enabled: bool, optional
 
-            paginationAutoPageSize (bool, optional):
-                Calculates optimal pagination size based on grid Height. Defaults to True.
+        :param paginationAutoPageSize: Calculates optimal pagination size based on grid Height. Defaults to ``True``.
+        :type paginationAutoPageSize: bool, optional
 
-            paginationPageSize (int, optional):
-                Forces page to have this number of rows per page. Defaults to 10.
+        :param paginationPageSize: Forces page to have this number of rows per page. Defaults to ``10``.
+        :type paginationPageSize: int, optional
         """
         if not enabled:
             self.__grid_options.pop("pagination", None)
@@ -332,12 +339,17 @@ class GridOptionsBuilder:
         """
         Configures the first column definition to look as an index column.
 
-        Args:
-            suppressMenu (bool, optional): Suppresses the header menu for the index col. Defaults to True.
-            headerText (str, optional): Header for the index column. Defaults to empty string.
-            resizable (bool, optional): Make index column resizable. Defaults to False.
-            sortable (bool, optional): Make index column sortable. Defaults to True.
+        :param suppressMenu: Suppresses the header menu for the index col. Defaults to ``True``.
+        :type suppressMenu: bool, optional
 
+        :param headerText: Header for the index column. Defaults to ``""``.
+        :type headerText: str, optional
+
+        :param resizable: Make index column resizable. Defaults to ``False``.
+        :type resizable: bool, optional
+
+        :param sortable: Make index column sortable. Defaults to ``True``.
+        :type sortable: bool, optional
         """
 
         index_options = {
@@ -357,8 +369,8 @@ class GridOptionsBuilder:
     def build(self):
         """Builds the gridOptions dictionary
 
-        Returns:
-            dict: Returns a dicionary containing the configured grid options
+        :return: a ``dict`` containing the configured grid options
+        :rtype: typing.Dict
         """
         self.__grid_options["columnDefs"] = list(
             self.__grid_options["columnDefs"].values()
