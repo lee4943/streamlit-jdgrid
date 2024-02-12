@@ -6,14 +6,14 @@
 ### <span style="color:dodgerblue">*Just Derive edition*</span>
 
 - Derived almost entirely from [@PablocFonseca](https://github.com/PablocFonseca)'s fantastic work on [streamlit-aggrid](https://github.com/PablocFonseca/streamlit-aggrid)
-- Will begin publishing separate docs soon as well!
+- Please uninstall `streamlit-aggrid` prior to use!
 
 ---
 
 **AgGrid** is an awesome grid for web frontend. More information in [https://www.ag-grid.com/](https://www.ag-grid.com/). Consider purchasing a license from Ag-Grid if you are going to use enterprise features!
 <br/>
 
-Some basic documentation is available: https://streamlit-aggrid.readthedocs.io
+Some basic documentation is available: https://lee4943.github.io/streamlit-jdgrid/
 <br/>
 
 # Install
