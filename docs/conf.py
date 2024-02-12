@@ -18,8 +18,6 @@ copyright = "2024, Pablo Fonseca, Jake Diamond"
 author = "Pablo Fonseca, Jake Diamond"
 
 version = __version__
-html_show_sourcelink = False
-html_copy_source = False
 
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
@@ -35,3 +33,12 @@ exclude_patterns = ["_build", "Thumbs.db", ".DS_Store"]
 
 html_theme = "alabaster"
 html_static_path = ["_static"]
+
+html_show_sourcelink = False
+html_copy_source = False
+html_title = f"streamlit-jdgrid, version {version}"
+
+html_theme_options = {
+    "body_max_width": "auto",
+    "page_width": "auto",
+}

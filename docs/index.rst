@@ -12,6 +12,8 @@ Welcome to streamlit-jdgrid's documentation!
    :maxdepth: 2
    :caption: Contents:
 
+   How to use AgGrid <Usage>
+
 .. toctree::
    :maxdepth: 1
    :caption: API:
