@@ -301,6 +301,7 @@ class GridOptionsBuilder:
             groupSelectsChildren and selection_mode == "multiple"
         )
         self.__grid_options["groupSelectsFiltered"] = groupSelectsFiltered
+        # 'preSelectAllRows' has apparently never worked, and always causes DevTools console errors
         self.__grid_options["preSelectAllRows"] = pre_select_all_rows
 
     def configure_pagination(

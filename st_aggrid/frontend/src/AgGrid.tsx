@@ -41,7 +41,7 @@ import { duration } from "moment"
 import { debounce, throttle } from "lodash"
 
 import { encode, decode } from "base64-arraybuffer"
-import { Buffer} from 'buffer'
+import { Buffer } from 'buffer'
 
 import "./agGridStyle.scss"
 
@@ -315,7 +315,7 @@ class AgGrid<S = {}> extends React.Component<ComponentProps, S> {
           Buffer.from(decode(v)).toString("latin1")
         )
         params.data = data
-        
+
         this.api.exportMultipleSheetsAsExcel(params)
       }
       if (this.props.args.excel_export_mode === "TRIGGER_DOWNLOAD") {
@@ -466,8 +466,8 @@ class AgGrid<S = {}> extends React.Component<ComponentProps, S> {
       this.DownloadAsExcelIfRequested()
     }
 
-    if ((this.props.args.reload_data) && (this.api)){
-        this.api.setRowData(JSON.parse(this.props.args.row_data))
+    if ((this.props.args.reload_data) && (this.api)) {
+      this.api.setRowData(JSON.parse(this.props.args.row_data))
     }
 
 
@@ -515,7 +515,7 @@ class AgGrid<S = {}> extends React.Component<ComponentProps, S> {
         this.gridOptions["preSelectedRows"]?.length() > 0
       ) {
         for (var idx in this.gridOptions["preSelectedRows"]) {
-          this.api.getRowNode(idx)?.setSelected(true, false, true)
+          this.api.getRowNode(idx)?.setSelected(true, false)
           this.returnGridValue()
         }
       }
